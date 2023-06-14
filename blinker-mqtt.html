@@ -1,0 +1,91 @@
+<script type="text/javascript">
+	RED.nodes.registerType('Blinker-IN', { // 节点的类型必须和上面注册的类型匹配 RED.nodes.registerType
+		category: 'Blinker', // 节点调色板的类别
+		color: '#a6bbcf', // 使用的背景颜色
+		label() {
+			return this.name || 'Blinker IN'
+		},
+		defaults: { // 节点可编辑的属性
+			name:{
+				value:'',
+				required: true
+			},
+			blinker: {
+				value: '',
+				type: 'blinker-conf'
+			}
+		},
+		inputs: 0, // 节点有多少输入  0 或者 1
+		outputs: 1, // 节点有多少输出  0 或者更多
+		icon: "bridge.png" // 要使用的图标
+	})
+	RED.nodes.registerType('Blinker-OUT', { // 节点的类型必须和上面注册的类型匹配 RED.nodes.registerType
+		category: 'Blinker', // 节点调色板的类别
+		color: '#a6bbcf', // 使用的背景颜色
+		label() {
+			return this.name || 'Blinker OUT'
+		},
+		defaults: {},
+		inputs: 1, // 节点有多少输入  0 或者 1
+		outputs: 1, // 节点有多少输出  0 或者更多
+		icon: "bridge.png" // 要使用的图标
+	});
+</script>
+
+<script type="text/x-red" data-template-name="Blinker-IN">
+	<div class="form-row">
+	  <label for="node-input-name"><i class="icon-tag"></i>节点名称</label>
+	  <input type="text" id="node-input-name">
+	</div>
+	<div class="form-row">
+	  <label for="node-input-blinker"><i class="icon-tag"></i>配置</label>
+	  <input type="text" id="node-input-blinker">
+	</div>
+	<p><img src="https://s2.ax1x.com/2020/02/20/3enRGd.md.jpg"/></p>
+	<div class="form-row">
+       <label style="width: 100%;text-align: right;padding-right: 34px;box-sizing: border-box;" >
+          <a href="https://bbs.iobroker.cn" target="_blank">Design By suwill</a>
+        </label>
+      </div>
+</script>
+<script type="text/x-red" data-template-name="Blinker-OUT">
+	<div class="form-row">
+	<p>输入接口必选参数:msg.SecretKey='xxxxxxxxx'和msg.send=true</p>
+	<p>否则本节点会报：“因msg.send或SecretKey缺失而未发布”的错误</p>
+	<p>其中msg.SecretKey在Blinker-IN节点中有输出(注意：不在msg.payload里)</p>
+       <label style="width: 100%;text-align: right;padding-right: 34px;box-sizing: border-box;" >
+          <a href="https://bbs.iobroker.cn" target="_blank">Design By suwill</a>
+        </label>
+      </div>
+</script>
+<script type="text/x-red" data-help-name="Blinker-IN">
+	<!--对应的帮助文档-->
+    <p>　　接入BlinkerAPP中的设备到Node-RED</p>
+	<h3>节点配置：</h3>
+	<dl class="message-properties">
+	    <dt>SecretKey
+	        <span class="property-type">string</span>
+	    </dt>
+	    <dd>Blinker官方APP中虚拟设备的key</dd>
+	    <dt>DeviceType
+	      <span class="property-type">string</span>
+	    </dt>
+	    <dd>设备类型,目前只分了米家和非米家设备</dd>
+	</dl>
+	<h3>输入</h3>
+	<p>　　在消息处理节点中加入"msg.sendMqtt=true;"标识，可以将msg.payload中的数据(JSON对象)发布到当前MQTT</p>
+	<h3>输出</h3>
+	<p>　　除了设备心跳包之外的mqtt信息一律输出到msg.payload</p>
+	<p>　　本节点使用了名为：BlinkerAPP中SecretKey的共享存储</p>
+	<p>　　其他的业务逻辑请亲们自己编写流</p>
+	<h3>致谢(排名不分先后)</h3>
+	<p>　trust<br/>
+	　奈何col<br/>
+	　花神<br/>
+	　三木<br/>
+	　三水<br/>
+	　实验幼儿园小二班扛把子<br/>
+	</p>
+	
+	<p>　源码地址:<a href="https://github.com/suwill/node-red-contrib-blinker-mqtt">github.com/suwill</a></p>
+</script>

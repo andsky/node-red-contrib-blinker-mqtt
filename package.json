@@ -1,0 +1,56 @@
+{
+  "_from": "node-red-contrib-blinker-mqtt@1.0.6",
+  "_id": "node-red-contrib-blinker-mqtt@1.0.6",
+  "_inBundle": false,
+  "_integrity": "sha512-cdGU8TWfUGEOxHvjfAHyMY2Wkdxtu/fuNMDfNWDOjRgDzZrKDzd6A58CvPQIGYgy5clAG7zE0unKTYGdBJ4aYA==",
+  "_location": "/node-red-contrib-blinker-mqtt",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "node-red-contrib-blinker-mqtt@1.0.6",
+    "name": "node-red-contrib-blinker-mqtt",
+    "escapedName": "node-red-contrib-blinker-mqtt",
+    "rawSpec": "1.0.6",
+    "saveSpec": null,
+    "fetchSpec": "1.0.6"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/node-red-contrib-blinker-mqtt/-/node-red-contrib-blinker-mqtt-1.0.6.tgz",
+  "_shasum": "e8bc282ea367dd6f646945f3b6a3178482464535",
+  "_spec": "node-red-contrib-blinker-mqtt@1.0.6",
+  "_where": "/data",
+  "author": {
+    "name": "suwill"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "mqtt": "^3.0.0"
+  },
+  "deprecated": false,
+  "description": "接入BlinkerAPP中的设备到Node-RED",
+  "keywords": [
+    "blinker",
+    "node-red"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "node-red-contrib-blinker-mqtt",
+  "node-red": {
+    "nodes": {
+      "blinker-mqtt": "blinker-mqtt.js",
+      "blinker-conf": "blinker-conf.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitee.com/suwillT_T/node-red-contrib-blinker-mqtt.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.6"
+}

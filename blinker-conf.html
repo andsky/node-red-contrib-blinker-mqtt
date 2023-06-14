@@ -1,0 +1,58 @@
+<script type="text/javascript">
+	RED.nodes.registerType('blinker-conf', {
+		category: 'config',
+		defaults: {
+			name: {
+				value: ""||"Blinker默认配置",
+				required: true
+			},
+			SecretKey: {
+				value: "",
+				required: true
+			},
+			DeviceType: {
+				value: "",
+				required: true
+			},
+			autoRes:{
+				value:"",
+				required:true
+			}
+		},
+		label: function() {
+			return this.name?this.name + "(" + this.SecretKey+")":"Blinker默认配置";
+		}
+	});
+</script>
+
+<script type="text/html" data-template-name="blinker-conf">
+	<div class="form-row">
+        <label for="node-config-input-name"><i class="icon-tag"></i>设备名称:</label>
+        <input type="text" id="node-config-input-name">
+    </div>
+	<div class="form-row">
+        <label for="node-config-input-SecretKey"><i class="icon-bookmark"></i>SecretKey:</label>
+        <input type="text" id="node-config-input-SecretKey" placeholder="BlinkerAPP中的设备密钥">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-DeviceType"><i class="icon-bookmark"></i>DeviceType:</label>
+		<select type="text" id="node-config-input-DeviceType" style="width:70%;">
+			<option value="">请选择设备类型</option>
+		    <option value="multi_outlet">米家：4孔插排</option>
+		    <option value="light">米家：灯(含RGB)</option>
+		    <option value="outlet">米家：电源类</option>
+		    <option value="sensor">米家：传感器类</option>
+			<option value="fan">米家：风扇</option>
+			<option value="aircondition">米家：空调</option>
+		    <option value="other">非米家设备</option>
+		</select>
+    </div>
+	<div class="form-row">
+	    <label for="node-config-input-autoRes"><i class="icon-bookmark"></i>自动反馈米家:</label>
+		<select type="text" id="node-config-input-autoRes" style="width:70%;">
+			<option value="">请选择</option>
+			<option value="true">是(无法传入HA设备状态)</option>
+		    <option value="false">否(需要自己写流反馈)</option>
+		</select>
+	</div>
+</script>
